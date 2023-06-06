@@ -1,5 +1,6 @@
 import { StatList } from "./StatList"
 import { StatListStyle, StatisticsStyle, Title } from "./Statistics.styled"
+import PropTypes from 'prop-types';
 
 export const Statistics = ({ title, stats }) => {
 //    console.log(stats);
@@ -11,4 +12,9 @@ export const Statistics = ({ title, stats }) => {
             </StatListStyle>
         </StatisticsStyle>
    
+}
+
+Statistics.propTypes = {
+    title: PropTypes.string,
+    stats: PropTypes.arrayOf(PropTypes.object)
 }

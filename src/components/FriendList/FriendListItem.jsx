@@ -1,4 +1,5 @@
 import { ItemFriendStyle } from "./FriendList.styled"
+import PropTypes from 'prop-types'
 
 export const FriendListItem = ({friends}) => {
     
@@ -10,4 +11,9 @@ export const FriendListItem = ({friends}) => {
            <p class="name">{name}</p>
 </ItemFriendStyle> 
     })
+}
+
+FriendListItem.propTypes = {
+    friends: PropTypes.array
+
 }

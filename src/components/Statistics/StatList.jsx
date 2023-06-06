@@ -1,4 +1,5 @@
 import { Item, getRandomHexColor } from "./Statistics.styled"
+import PropTypes from 'prop-types';
 
 export const StatList = ({ data }) => {
    
@@ -8,4 +9,8 @@ export const StatList = ({ data }) => {
             <span class="percentage">{percentage}%</span>
     </Item>
     })
+}
+
+StatList.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object)
 }
