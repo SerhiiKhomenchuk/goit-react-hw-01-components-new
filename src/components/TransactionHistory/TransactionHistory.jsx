@@ -2,7 +2,7 @@ import { Table } from "./TransactionHistory.styled";
 import PropTypes from 'prop-types';
 
 export const TransactionHistory = ({ items }) => {
-    console.log(items);
+    
     return <Table>
         <thead>
             <tr>
@@ -15,9 +15,9 @@ export const TransactionHistory = ({ items }) => {
         <tbody>
             {items.map(({ currency, amount, type, id},idx) => {
                 return <tr key={id}>
-                    <td style={{backgroundColor:idx%2!==0? 'antiquewhite' : 'white'}}>{type}</td>
-                    <td style={{backgroundColor:idx%2!==0? 'antiquewhite' : 'white'}}>{amount}</td>
-                    <td style={{backgroundColor:idx%2!==0? 'antiquewhite' : 'white'}}>{currency}</td>
+                    <td>{type}</td>
+                    <td>{amount}</td>
+                    <td>{currency}</td>
                 </tr>
             })}
         </tbody>
@@ -25,5 +25,12 @@ export const TransactionHistory = ({ items }) => {
 }
 
 TransactionHistory.propTypes = {
-    items:PropTypes.arrayOf(PropTypes.object)
+    items:PropTypes.arrayOf(
+        PropTypes.shape({
+        currency:PropTypes.string.isRequired,
+        amount: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 }
